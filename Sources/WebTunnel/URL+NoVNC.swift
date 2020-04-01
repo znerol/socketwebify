@@ -6,10 +6,10 @@ public extension URL {
 
         if let url = URL(string: string) {
             switch url.scheme {
-            case "ws", "wss":
+            case "ws"?, "wss"?:
                 result = url
 
-            case "http", "https":
+            case "http"?, "https"?:
                 var scheme: String = url.scheme == "http" ? "ws://" : "wss://"
 
                 // Extract websocket URL from query/fragment parameters.
